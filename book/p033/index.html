@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+
+  <div class="" id="app">
+    <!-- Bind Expression, Mustache Brace -->
+    {{ message }}
+  </div>
+  <!-- 
+  <div id="app">
+    Hello Vue.js!
+  </div>
+   -->
+   
+  <div class="">
+    {{ message }}
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js" charset="utf-8"></script>
+  
+  <script type="text/javascript">
+  
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue.js!'
+      },
+      beforeCreate: function () {
+        console.log('1. beforeCreate');
+      },
+      created: function () {
+        console.log('2. created');
+      },
+      beforeMount: function () {
+        console.log('3. beforeMount');
+      },
+      mounted: function () {
+        console.log('4. mounted');
+        this.message = 'Hello World!';
+        // 리액트는 직접 refresh 명령을 내려야 하지만,
+        // 앵귤러와 뷰는 자동으로 화면이 갱신된다.
+        console.log(app);
+        // undefined
+        
+        console.log(Object.keys(this)); // #1
+        // #1, #2 결과가 같다.
+      },
+      beforeUpdate: function () {
+        console.log('5. beforeUpdate');
+      },
+      updated: function () {
+        console.log('6. updated');
+      },
+      beforeDestroy: function () {
+        console.log('7. beforeDestroy');
+      },
+      destroyed: function () {
+        console.log('8. destroyed');
+      }
+    });
+    
+    // console.log(app);
+    // console.log(Object.keys(app)); // #2
+    // [
+    //   "_uid", "_isVue", "$options", "_renderProxy", "_self", 
+    //   "$parent", "$root", "$children", "$refs", "_watcher", 
+    //   "_inactive", "_directInactive", "_isMounted", "_isDestroyed", 
+    //   "_isBeingDestroyed", "_events", "_hasHookEvent", "_vnode", 
+    //   "$vnode", "$slots", "$scopedSlots", "_c", "$createElement", 
+    //   "$attrs", "$listeners", "_watchers", "_data", "message", "$el"
+    // ]
+    
+    console.log(app._data.message);
+    // Hello World!
+    
+  </script>
+
+</body>
+
+</html>

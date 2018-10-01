@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  
+  <div id="app">
+    <h1>{{ message }}</h1>
+    
+    <!-- v-model="변수명" : 양방향 데이터 바인딩 -->
+    <!-- <input type="text" id="message" v-model="message"> -->
+    
+    <!-- 
+      v-bind:속성="변수명" : 프로퍼티 바인딩
+      v-on:이벤트명="메소드명" : 이벤트 바인딩
+     -->
+    <input type="text" id="message" 
+      v-bind:value="message" v-on:keyup="change">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  <script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello World!'
+    },
+    methods: {
+      change: function (e) {
+        console.log('methods # change');
+        this.message = e.target.value;
+        console.log(this.message);
+      }
+    }
+  });
+  </script>
+  <!-- 
+    실습: 위 코드를 Vue 에서 jQuery 로 변경해 보세요.
+   -->
+   
+</body>
+
+</html>

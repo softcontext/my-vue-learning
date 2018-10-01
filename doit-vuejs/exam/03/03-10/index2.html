@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event Bus Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <publisher-component></publisher-component>
+      <subscriber-component></subscriber-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      // 뷰 인스턴스가 이벤트 버스역할을 수행합니다.
+      var eventBus = new Vue();
+
+      Vue.component('publisher-component', {
+        template: '<div>하위 컴포넌트 영역입니다.<button v-on:click="showLog">show</button></div>',
+        methods: {
+          showLog: function() {
+            eventBus.$emit('triggerEventBus', 100);
+          }
+        }
+      });
+      
+      Vue.component('subscriber-component', {
+        template: '<div>str = {{ str }}</div>',
+        data: function () {
+          return {
+            str: '111'
+          };
+        },
+        created: function() {
+          var self = this;
+          // 콜백함수의 Function Context 인 this 는 컴포넌트객체가 아닙니다.
+          eventBus.$on('triggerEventBus', function(value){
+            console.log('triggerEventBus >> cb', value);
+            console.log(this.str); // undefined
+            self.str = value;
+          });
+        }
+      });
+
+      var app = new Vue({
+        el: '#app',
+      });
+    </script>
+  </body>
+</html>

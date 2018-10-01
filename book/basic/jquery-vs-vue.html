@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  
+  <div id="app">
+    <h1></h1>
+    <input type="text" id="message">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript">
+    var data = {
+      message: 'Hello World!'
+    };
+    
+    $('h1').text(data.message);
+    $('#message').val(data.message);
+    
+    $('#message').on('keyup', function () {
+      var message = $('#message').val();
+      $('h1').text(message);
+    });
+  </script>
+  <!-- 
+    실습: 위 코드를 jQuery 에서 Vue 로 변경해 보세요.
+   -->
+
+</body>
+
+</html>
