@@ -5,6 +5,8 @@
   <body>
     <div id="app">
       <input v-model="message">
+      <p>{{print}}</p>
+      <pre>{{$data}}</pre>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
@@ -12,11 +14,21 @@
       new Vue({
         el: '#app',
         data: {
-          message: 'Hello Vue.js!'
+          message: 'Hello'
         },
         watch: {
+          // 함수명을 변수명과 일치시켜 작성하면
+          // 변수가 변경될 때 함수가 자동으로 기동합니다.
           message: function(data) {
             console.log("message의 값이 바뀝니다 : ", data);
+          }
+        },
+        computed: {
+          // 함수를 화면에서 사용해야만 작동됩니다.
+          // 함수안에서 사용하는 변수가 변경되면 자동으로 기동합니다.
+          print: function () {
+            console.log('computed # print() called.');
+            return this.message.split('').reverse().join('');
           }
         }
       });

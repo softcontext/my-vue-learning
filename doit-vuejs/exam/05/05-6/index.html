@@ -4,7 +4,7 @@
   </head>
   <body>
     <div id="app">
-      <button v-on:click="clickBtn(10)">클릭</button>
+      <button v-on:click="clickBtn($event, 10)">클릭</button>
 		</div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
@@ -12,8 +12,10 @@
       new Vue({
         el: '#app',
         methods: {
-          clickBtn: function(num) {
-            alert('clicked ' + num + ' times');
+          clickBtn: function(e, num) {
+            console.log(e);
+            console.log(num);
+            // alert('clicked ' + num + ' times');
           }
         }
       });

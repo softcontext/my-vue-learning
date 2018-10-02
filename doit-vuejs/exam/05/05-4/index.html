@@ -4,12 +4,19 @@
   </head>
   <body>
     <div id="app">
-      <a v-if="flag">두잇 Vue.js</a>
+      <!-- false 일 때, 해당 엘리먼트 전체가 사라집니다. -->
+      <a v-if="!flag">v-if 로 제어하는 콘텐츠</a>
+      <!-- false 일 때, 해당 엘리먼트는 남지만 표시되지는 않습니다. -->
+      <p v-show="!flag">v-show 로 제어하는 콘텐츠</p>
+      
+      <hr>
+      
       <ul>
         <li v-for="system in systems">{{ system }}</li>
       </ul>
-      <p v-show="flag">두잇 Vue.js</p>
+      
       <h5 v-bind:id="uid">뷰 입문서</h5>
+      
       <button v-on:click="popupAlert">경고 창 버튼</button>
     </div>
 
