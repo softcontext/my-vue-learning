@@ -1,5 +1,16 @@
 <template>
   <section>
+    <!--
+    <ul>
+      <li v-for="(todoItem, index) in todoItems" :key="todoItem" class="shadow">
+        <i class="checkBtn fas fa-check" aria-hidden="true"></i>
+        {{ todoItem }}
+        <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
+          <i class="far fa-trash-alt" aria-hidden="true"></i>
+        </span>
+      </li>
+    </ul>
+     -->
     <transition-group name="list" tag="ul">
       <li v-for="(todoItem, index) in propsdata" :key="todoItem" class="shadow">
         <i class="checkBtn fas fa-check" aria-hidden="true"></i>
@@ -15,9 +26,18 @@
 <script>
 export default {
   props: ['propsdata'],
+  // 자신이 직접 필요한 데이터를 갖고 있지 않고
+  // 부모 컴포넌트로부터 받아서 사용하는 방식으로 변경합니다.
+  // data() {
+  //   return {
+  //     todoItems: []
+  //   }
+  // },
   methods: {
     removeTodo(todoItem, index) {
       this.$emit('removeTodo', todoItem, index);
+      // localStorage.removeItem(todoItem);
+      // this.todoItems.splice(index, 1);
     }
   }
 }

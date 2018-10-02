@@ -2,7 +2,13 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput v-on:addTodo="addTodo"></TodoInput>
-    <TodoList v-bind:propsdata="todoItems" @removeTodo="removeTodo"></TodoList>
+    <!--
+      부모 컴포넌트인 App 컴포넌트가 데이터를 갖고 있다가
+      데이터가 필요한 자식 컴포넌트에게 propsdata 라는 키값으로
+      todoItems 가 보유한 배열을 전달합니다.
+    -->
+    <TodoList v-bind:propsdata="todoItems"
+      @removeTodo="removeTodo"></TodoList>
     <TodoFooter v-on:removeAll="clearAll"></TodoFooter>
   </div>
 </template>

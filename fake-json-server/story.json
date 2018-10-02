@@ -1,0 +1,26 @@
+{
+  "data":{
+    "total": 12,
+    "per_page": 5,
+    "current_page": 2,
+    "last_page": 3,
+    "next_page_url": "http://localhost:3000/data?page=3",
+    "prev_page_url": "http://localhost:3000/data?page=1",
+    "from": 6,
+    "to": 10,
+    "data": [
+      {"id": 1,"plot": "11","writer": "A","upvotes": 0,"editing": false},
+      {"id": 2,"plot": "11","writer": "A","upvotes": 0,"editing": false},
+      {"id": 3,"plot": "11","writer": "A","upvotes": 0,"editing": false},
+      {"id": 4,"plot": "11","writer": "A","upvotes": 0,"editing": false},
+      {"id": 5,"plot": "11","writer": "A","upvotes": 0,"editing": false},
+      {"id": 6,"plot": "22","writer": "B","upvotes": 0,"editing": false},
+      {"id": 7,"plot": "22","writer": "B","upvotes": 0,"editing": false},
+      {"id": 8,"plot": "22","writer": "B","upvotes": 0,"editing": false},
+      {"id": 9,"plot": "22","writer": "B","upvotes": 0,"editing": false},
+      {"id": 10,"plot": "22","writer": "B","upvotes": 0,"editing": false},
+      {"id": 11,"plot": "33","writer": "A","upvotes": 0,"editing": false},
+      {"id": 12,"plot": "33","writer": "A","upvotes": 0,"editing": false}
+    ]
+  }
+}

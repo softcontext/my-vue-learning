@@ -1,0 +1,104 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "stories": [
+    {
+      "id": 1,
+      "plot": "11",
+      "writer": "A",
+      "upvotes": 3,
+      "editing": false
+    },
+    {
+      "id": 2,
+      "plot": "22",
+      "writer": "A",
+      "upvotes": 11,
+      "editing": false
+    },
+    {
+      "id": 3,
+      "plot": "11",
+      "writer": "B",
+      "upvotes": 22,
+      "editing": false
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "title": "Accepted",
+      "director": "Steve Pink"
+    },
+    {
+      "id": 2,
+      "title": "Steve Jobs",
+      "director": "Danny Boyle"
+    },
+    {
+      "id": 3,
+      "title": "The Social Network",
+      "director": "David Fincher"
+    },
+    {
+      "id": 4,
+      "title": "Joy",
+      "director": "David O. Russell"
+    },
+    {
+      "id": 5,
+      "title": "Morning Glory",
+      "director": "Roger Michell"
+    },
+    {
+      "id": 6,
+      "title": "The Pursuit of Happyness",
+      "director": "Gabriele Muccino"
+    },
+    {
+      "id": 7,
+      "title": "Moneyball",
+      "director": "Bennett Miller"
+    },
+    {
+      "id": 8,
+      "title": "The Devil Wears Prada",
+      "director": "David Frankel"
+    },
+    {
+      "id": 9,
+      "title": "Up in the Air",
+      "director": "Jason Reitman"
+    },
+    {
+      "id": 10,
+      "title": "The Company Men",
+      "director": "John Wells"
+    },
+    {
+      "id": 11,
+      "title": "The Intern",
+      "director": "Nancy Meyers"
+    },
+    {
+      "id": 12,
+      "title": "Incomplete Life",
+      "director": "Wonseok KIM"
+    }
+  ]
+}
