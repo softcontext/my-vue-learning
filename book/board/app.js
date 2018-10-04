@@ -61,9 +61,12 @@ var vm = new Vue({
             }
             console.log('2 > page_url = '+page_url);
 
+            // $http 대신 axios 사용코드로 변경이 필요합니다.
             this.$http.get(page_url).then(function (response) {
                 console.log('data.length = ' + response.data.data.length);
                 var storiesReady = response.data.data.map(function (story) {
+                    // story 객체안에 editing 프로퍼티가 없다면
+                    // 동적으로 추가하는 코드로 방어적인 의미를 갖습니다.
                     story.editing = false;
                     return story
                 })

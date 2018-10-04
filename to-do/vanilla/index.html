@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <style media="screen">
+
+      .jumbotron {
+        margin-top: 30px;
+        margin-bottom: 15px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        text-align: center;
+        padding: 30px;
+      }
+      .badge-primary {
+        background-color: red;
+      }
+      span {
+        cursor: pointer;
+      }
+      span:hover {
+        background: grey;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container animated fadeIn">
+
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Todo List App</h1>
+          <p class="lead">Manage your tasks easily.</p>
+        </div>
+      </div>
+
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Type your task here...">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add Todo</button>
+        </div>
+      </div>
+
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Walk the dog this evening
+          <span class="badge badge-primary badge-pill">x</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Go shopping at 3 PM
+          <span class="badge badge-primary badge-pill">x</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Sleep well tonight
+          <span class="badge badge-primary badge-pill">x</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Keep coding 'till you're dead
+          <span class="badge badge-primary badge-pill">x</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Enjoy every moment you have
+          <span class="badge badge-primary badge-pill">x</span>
+        </li>
+      </ul>
+
+    </div>
+
+    <script type="text/javascript">
+
+      const container = document.querySelector('.container');
+      const button = document.querySelector('button');
+      const input = document.querySelector('input[type="text"]');
+      const list = document.querySelector('ul');
+
+      button.addEventListener('click', () => {
+        if (input.value === '') {
+          const div = document.createElement('div');
+          div.classList.add('alert', 'alert-warning', 'animated', 'bounceIn');
+          div.appendChild(document.createTextNode('Ooops! There is nothing to add.'));
+
+          container.insertBefore(div, list);
+
+          setTimeout(() => {
+            div.remove();
+          }, 3000);
+
+        } else {
+          const li = document.createElement('li');
+          const span = document.createElement('span');
+          const div = document.createElement('div');
+
+          li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center', 'animated', 'flipInX');
+          span.classList.add('badge', 'badge-primary', 'badge-pill');
+          div.classList.add('alert', 'alert-success', 'animated', 'fadeInUp');
+
+          li.appendChild(document.createTextNode(input.value));
+          span.appendChild(document.createTextNode('x'));
+          div.appendChild(document.createTextNode('Task added successfully!'));
+
+          li.appendChild(span);
+          list.appendChild(li);
+
+          container.insertBefore(div, list);
+
+          setTimeout(() => {
+            div.remove();
+          }, 3000);
+
+          input.value = '';
+        }
+      });
+
+      list.addEventListener('click', (e) => {
+        if (e.target.classList.contains('badge') && confirm('Are you sure?') === true) {
+          e.target.parentElement.remove();
+
+          const div = document.createElement('div');
+          div.classList.add('alert', 'alert-success', 'animated', 'fadeInUp');
+          div.appendChild(document.createTextNode('Task removed successfully!'));
+          container.insertBefore(div, list);
+
+          setTimeout(() => {
+            div.remove();
+          }, 3000);
+        }
+      });
+    </script>
+
+  </body>
+
+</html>

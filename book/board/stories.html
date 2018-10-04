@@ -34,6 +34,12 @@
                     <th>Upvotes</th>
                     <th>Actions</th>
                 </tr>
+                <!-- 
+                  is="story"
+                  브라우저에게 이 태그는 건들지 말라고 요청합니다.
+                  불완전한 태그를 브라우저가 삭제하려는 행동을 막습니다.
+                  story 라는 문자열로 가리키는 컴포넌트를 사용합니다.
+                 -->
                 <tr v-for="story in stories" is="story" :story="story"></tr>
             </table>
 
